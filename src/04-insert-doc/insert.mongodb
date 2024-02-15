@@ -1,0 +1,14 @@
+use("platzi_store")
+
+db.products.insertOne({
+    _id: 1,
+    name: "Smart TV Philips 7400 Series LED Android 10 4K 50''",
+    price: 378
+})
+db.products.insertOne({
+    _id: 2,
+    name: "Apple iPhone 15 (128 GB) - Negro",
+    price: 1000
+})
+
+

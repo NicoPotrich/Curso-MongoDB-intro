@@ -1,0 +1,13 @@
+use("sample_training")
+
+db.trips.find(
+    // query
+    { tripduration: { $gte: 500 } },
+    // projection
+    { tripduration:1, usertype: 1, _id: 0 }
+)
+
+//* Para las proyecciones activamos los campos que queremos ver con un "1" y los desactivamos con un "0"
+//* pero el unico campo que se desactiva explicitamente es el campo "id" ya que al activar ciertos campos
+//* ya me estaria desactivando el resto y me tiraria un error
+

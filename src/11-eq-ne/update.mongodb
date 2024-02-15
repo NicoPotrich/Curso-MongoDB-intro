@@ -1,0 +1,33 @@
+use("platzi_store")
+
+//* Estos operadores ($eq y $ne), son operadores de query. Es decir que los podemos usar para un "update"
+
+db.inventory.updateMany(
+    // query - operators
+    { qty: { $ne: 20 } },
+    // update - operators
+    { 
+        $inc: {
+            qty: 10
+        }
+    }
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

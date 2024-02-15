@@ -1,0 +1,36 @@
+use("platzi_store")
+
+// $in => sirve para values & arrays
+db.inventory.find({ qty: { $in: [20, 25] } })  // Busqueda fuera de un array
+db.inventory.find({ tags: { $in: ["book", "electronics"] } })  // Busqueda dentro de un array
+
+
+// $nin => sirve para values & arrays
+db.inventory.find({ qty: { $nin: [20, 25] } })  // Busqueda fuera de un array
+db.inventory.find({ tags: { $nin: ["book", "electronics"] } })  // Busqueda dentro de un array
+
+
+//* Solo para arrays
+db.inventory.find({ tags: "book" })  
+db.inventory.find({ tags: ["school", "book"] })  // Busca los que estan exactamente en esa posicion
+db.inventory.find({ tags: ["book", "school"] })  // NO ENCUENTRA NINGUNO
+
+// arrays - $all
+db.inventory.find({ tags: { $all: ["book", "school"] } })  // con "all" no importa el orden
+
+// arrays - $size
+db.inventory.find({ tags: { $size: 2 } })  // con "size" busca segun la cantidad de elementos
+
+// arrays - $elemMatch
+db.survey.find({ results: { $elemMatch: { product: "xyz" } } })  // con "size" busca los productos que contangan el parametro
+
+db.survey.find({ 
+    results: { 
+        $elemMatch: { 
+            product: "xyz", 
+            score: { $gte: 7 } 
+        } 
+    }    
+})  
+
+

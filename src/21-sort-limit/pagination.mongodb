@@ -1,0 +1,40 @@
+use("platzi_store")
+
+db.categories
+    .find()
+    .skip(0)
+    .limit(2)
+
+db.categories
+    .find()
+    .skip(2)
+    .limit(2)
+
+db.categories
+    .find()
+    .skip(4)
+    .limit(2)
+
+//* Usando el Skip y el limit, estamos paginando la informacion. 
+//* Con "limit" decimos cuantos datos queremos por "pagina" 
+//* y con el skip vamos cambiando de "paginas".
+//* el "skip" tiene que ser siempre multiplo del "limit"
+
+db.categories
+    .find()
+    .skip(0)
+    .limit(3)
+
+db.categories
+    .find()
+    .skip(3)
+    .limit(3)
+
+db.categories
+    .find()
+    .skip(6)
+    .limit(3)
+
+
+
+

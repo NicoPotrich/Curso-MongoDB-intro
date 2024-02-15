@@ -1,0 +1,18 @@
+use("platzi_store")
+
+db.monthlyBudget.find({ spent: {$gte: 100} })
+
+db.monthlyBudget.find({ 
+    $expr: {
+        $gte: ["$spent", 100]  // al poner el signo "$" en el array estamos seleccionando un campo en especifico
+    } 
+})  // de esta forma obtenemos el mismo resultado que la consulta anterior pero no estamos usando el potencial de "expr"
+
+
+db.monthlyBudget.find({ 
+    $expr: {
+        $gte: ["$spent", "$budget"]  // aca no estamos enviando un valor especifico sino que estamos comprando entre dos campos
+    } 
+})  // en esta consulta estamos pidiendo que nos muestre los datos donde "spent" supero a "budget"
+
+

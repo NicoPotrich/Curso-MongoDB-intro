@@ -1,0 +1,29 @@
+use("platzi_store")
+
+/* 
+* El $eq (equal) ya lo estuvimos usando de forma implicita... es decir sin haberlo llamado en el query
+* Sin embargo se puede usar de manera explicita
+* El $ne (no equal), no se usa de manera implicita
+*/
+
+//* Using $eq
+// db.inventory.find({ qty: 20 })   //* Manera implicita
+// db.inventory.find({ qty: { $eq: 20 } })   //* Manera explicita
+
+
+db.inventory.find({ "item.name": "ab" })
+db.inventory.find({ "item.code": { $eq: "123" } })
+
+
+//* Using $ne
+db.inventory.find({ qty: { $ne: 20 } })
+
+
+
+
+
+
+
+
+
+

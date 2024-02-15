@@ -1,0 +1,23 @@
+use("platzi_store")
+
+db.inventory.find({ "item.description": "Single line description." })
+
+//* El operador "regex" nos permite hacer busquedas en los documentos que contengan los parametros que le asignemos 
+db.inventory.find({ "item.description": { $regex: /description/ } })
+
+//* Pero solamente con regex, la busqueda es case sensitive. Para omitir esta regla debemos agregar una "i" despues de la condicion
+db.inventory.find({ "item.description": { $regex: /DESCRIPTION/i } })
+
+//* Para buscar los textos que terminen con la condicion le agregamos "$"
+db.inventory.find({ "item.description": { $regex: /Line$/i } })
+
+//* Para buscar los textos que inicien con la condicion le agregamos "^"
+db.inventory.find({ "item.description": { $regex: /^single/i } })
+
+//* Para buscar los textos que inicien con la condicion le agregamos "^"
+db.inventory.find({ "item.description": { $regex: /^single/i } })
+
+//* Agregando la letra "m" nos busca en los textos cuando hay saltos de linea. 
+//* Por ejemplo si queremos buscar en un parrafo todas las lineas que empiecen con una letra en especifico
+db.inventory.find({ "item.description": { $regex: /^s/im } })
+

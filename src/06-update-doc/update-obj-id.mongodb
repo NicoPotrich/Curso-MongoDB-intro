@@ -1,0 +1,15 @@
+use("platzi_store")
+
+
+db.products.updateOne(
+    /* query */
+    {_id: ObjectId("65c9043f2e6fea4bc493fdf5")}, /* para actualizar algun valor con un id generado aleatoriamente por mongo hay que usar esta funcion */
+    /* change => operators */ 
+    {
+        $inc: {  
+            price: 100,  /* con inc podemos incrementar valores numericos */
+        }
+    } 
+)
+
+

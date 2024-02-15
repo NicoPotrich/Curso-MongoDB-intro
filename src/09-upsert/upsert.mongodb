@@ -1,0 +1,31 @@
+use("platzi_store")
+
+/* 
+* La otra solucion de hacerlo con mongo seria agregando un "upsert" luego del $push
+*/
+
+//* Primer dato del dia 2022-01-04, hace un "insert"
+//db.iot.updateOne({
+//    sensor: "A001",
+//    date: "2022-01-04",
+//}, {
+//    $push: {
+//        readings: 2323
+//    }  
+//}, {
+//    upsert: true
+//})
+
+//* Segundo dato del dia 2022-01-04, hace un "update"
+db.iot.updateOne({
+    sensor: "A001",
+    date: "2022-01-04",
+}, {
+    $push: {
+        readings: 1234
+    }  
+}, {
+    upsert: true
+})
+
+

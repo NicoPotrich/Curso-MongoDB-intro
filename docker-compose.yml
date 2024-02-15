@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  mongodb:
+    image: mongo:5.0
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root123
+    volumes:
+      - ./mongo_data:/data/db # Segun dockerhub, mongo guarda su informacion estructura "/data/db", entonces creamos una carpera en nuestro entorno local "mongo_data" para que replique todo lo que hay en mongo
+
+

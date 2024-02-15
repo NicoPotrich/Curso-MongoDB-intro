@@ -1,0 +1,49 @@
+use("platzi_store")
+
+/* 
+* En este ejemplo simulamos un sistema de sensores que van agregando datos diariamente pero, como sabemos
+* si es la primera lectura del dia para hacer un "insert" o ya esta creada y desde ahi hacer "update" para agregar datos?
+* Una posible solucion seria hacer un "find()" y un "count()" para luego, con algun lenguaje de programacion, usar ese count:
+* si el count() = 0, hacemos un "insert", sino usamos "update()"
+* La otra solucion de hacerlo con mongo la vemos en el archivo "upsert"
+*/
+
+db.iot.find({
+    sensor: "A001",
+    date: "2022-01-03"
+}).count()
+db.iot.insertOne({
+    sensor: "A001",
+    date: "2022-01-03",
+    readings: [1212]
+})
+
+//db.iot.updateOne({
+//   sensor: "A001",
+//    date: "2022-01-03",
+//}, {
+//    $push: {
+//        readings: [2323]
+//    }    
+//})
+
+//db.iot.updateOne({
+//    sensor: "A001",
+//    date: "2022-01-03",
+//}, {
+//    $pop: {
+//        readings: 1   /* para borrar el ultimo elemento que agregamos arriba */
+//    }    
+//})
+
+db.iot.updateOne({
+    sensor: "A001",
+    date: "2022-01-03",
+}, {
+    $push: {
+        readings: 2323
+    }    
+})
+
+
+

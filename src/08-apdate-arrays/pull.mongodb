@@ -1,0 +1,18 @@
+use("platzi_store")
+
+
+// $pull **solo para arrays** y sirve para quitar elementos dentro del array
+db.inventory.updateMany({}, {   /* al dejar el query vacio "{}" va a traer todos los elementos que encuentre */
+    $pull: {
+        tags: "book"   /* remove one element from array */
+    }
+})
+
+
+db.inventory.updateMany({}, {   /* al dejar el query vacio "{}" va a traer todos los elementos que encuentre */
+    $pull: {
+        tags: {  
+            $in: ["appliance", "school"]   /* remove many elements from array */
+        }   
+    }
+})

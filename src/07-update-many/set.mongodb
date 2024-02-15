@@ -1,0 +1,43 @@
+use("sample_training")
+
+
+// $set     /* sirve para agregar o modificar attributos */
+db.zips.updateMany(
+    /* query */
+    { city: "CLEVELAND" },
+    /* update - operators */
+    {
+        $set: {
+            myAttr: "Set-Attribute"
+        }
+    }
+)
+
+
+// $rename     /* sirve para renombrar attributos */
+db.zips.updateMany(
+    /* query */
+    { city: "CLEVELAND" },
+    /* update - operators */
+    {
+        $rename: {
+            myAttr: "Rename-Attribute"
+        }
+    }
+)
+
+
+// $unset     /* sirve para eliminar attributos */
+db.zips.updateMany(
+    /* query */
+    { city: "CLEVELAND" },
+    /* update - operators */
+    {
+        $unset: {
+            "Rename-Attribute": ""
+        }
+    }
+)
+
+
+

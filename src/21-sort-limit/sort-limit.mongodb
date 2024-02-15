@@ -1,0 +1,28 @@
+use("sample_training")
+
+
+db.zips
+    .find({ pop: { $gte: 100 } })
+    .sort({ pop: -1 })  // 1 = ordenar de forma ascendente, -1 = ordenar de forma descendente 
+    .limit( 2 )  // para mostar solo dos documentos
+
+
+db.zips
+    .find({ pop: { $gte: 100 } })
+    .sort({ pop: -1 })  // 1 = ordenar de forma ascendente, -1 = ordenar de forma descendente 
+    .limit( 2 )  // para mostar solo dos documentos
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

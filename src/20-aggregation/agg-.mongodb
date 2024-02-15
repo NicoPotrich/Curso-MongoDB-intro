@@ -1,0 +1,28 @@
+use("sample_airbnb")
+
+db.listingsAndReviews.find({
+    amenities: "Wifi"
+}, {
+    price: 1,
+    amenities: 1
+})
+
+
+//* aggregate => [], [], []
+db.listingsAndReviews.aggregate([
+    { $match: { amenities: "Wifi" } },  // find
+    { $project: { price: 1, amenities: 1 } }  // project
+])
+//* Esta consulta nos trae el mismo resultado que la primer consulta.
+//* Pero el aggregation Framework funciona por capas y es donde tiene el potencial
+
+db.listingsAndReviews.aggregate([
+    { $match: { amenities: "Wifi" } },  // find
+    { $project: { address: 1 } },  // project
+    { $group: { _id: "$address.country", count: { $sum: 1 } } }
+])
+
+
+
+
+

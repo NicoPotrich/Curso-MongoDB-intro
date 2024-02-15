@@ -1,0 +1,15 @@
+use("platzi_store")
+
+db.products.updateOne(
+    /* query */
+    {_id: 2},
+    /* change => operators */ 
+    {
+        $set: {
+            name: "Apple iPhone 15 (128 GB) - Silver",
+            price: 1200,
+            SO: "iOS"
+        }
+    } 
+)
+

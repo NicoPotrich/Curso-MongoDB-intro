@@ -1,0 +1,33 @@
+use("platzi_store")
+
+db.products.drop()
+
+db.products.insertMany([
+    {
+        _id: 1,
+        name: "Smart TV Philips 7400 Series LED Android 10 4K 50''",
+        price: 378
+    },
+    {
+        _id: 2,
+        name: "Apple iPhone 15 (128 GB) - Negro",
+        price: 1000
+    },
+    {
+        _id: 1,   /* Si asignamos un _id ya existente, el query tirara un error y no dejara insertar los productos siguientes */
+        name: "Apple Watch Series 9 GPS",
+        price: 570
+    },
+    {
+        _id: 4,
+        name: "Barra De Sonido Sony Ht-s100f Bluetooth 120w Hdmi 2.0",
+        price: 208
+    }
+], {
+    ordered: false  /* Con esta instruccion hacemos que se sigan insertando los producto aunque haya ids repetidos */
+}
+)
+
+db.products.find()
+
+
