@@ -1,4 +1,4 @@
-# Platzi.
+# Platzi
 
 ## Curso de Introducción a MongoDB
 
